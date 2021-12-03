@@ -1,18 +1,10 @@
 const fs = require("fs");
-
-//HELPER
-const convertDataToNumericArray = (data) => {
-  return data
-    .toString()
-    .replace(/\n/g, " ")
-    .split(" ")
-    .map((val) => Number(val));
-};
+const helpers = require("../helpers");
 
 //SOLUTION 1
 const countDepthIncrements = () => {
   fs.readFile("./measurements.txt", (err, data) => {
-    const measurements = convertDataToNumericArray(data);
+    const measurements = helpers.convertDataToNumericArray(data);
 
     let count = 0;
     for (var i = 1; i < measurements.length; i++) {
@@ -30,7 +22,7 @@ countDepthIncrements();
 //SOLUTION 2;
 const countDepthIncrementsInTrios = () => {
   fs.readFile("./measurements.txt", (err, data) => {
-    const measurements = convertDataToNumericArray(data);
+    const measurements = helpers.convertDataToNumericArray(data);
 
     let count = 0;
     for (var i = 0; i < measurements.length; i++) {

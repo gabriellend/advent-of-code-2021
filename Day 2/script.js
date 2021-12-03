@@ -1,22 +1,10 @@
 const fs = require("fs");
-
-//HELPERS
-const convertDataToArray = (data) =>
-  data.toString().replace(/\s/g, ",").split(",");
-
-const convertToNumbers = (course) =>
-  course.map((val, i) => {
-    if (i % 2 === 1) {
-      return Number(val);
-    } else {
-      return val;
-    }
-  });
+const helpers = require("../helpers");
 
 //SOLUTION 1
 const calculateFinalPosition = () => {
   fs.readFile("./course.txt", (err, data) => {
-    let course = convertDataToArray(data);
+    let course = helpers.convertDataToArray(data);
     course = convertToNumbers(course);
 
     let horizontalPosition = 0;
@@ -40,7 +28,7 @@ calculateFinalPosition();
 //SOLUTION 2
 const calculateFinalPositionWithAim = () => {
   fs.readFile("./course.txt", (err, data) => {
-    let course = convertDataToArray(data);
+    let course = helpers.convertDataToArray(data);
     course = convertToNumbers(course);
 
     let horizontalPosition = 0;
